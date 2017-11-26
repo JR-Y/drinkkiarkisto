@@ -1,4 +1,6 @@
-# tikape-runko
+# Drinkkiarkisto
 
-Tietokantojen perusteet -kurssilla tehtävän web-sovelluksen pohja.
+Harjoitustehtävä
+
+
 
