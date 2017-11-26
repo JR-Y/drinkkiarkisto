@@ -5,7 +5,7 @@ import spark.ModelAndView;
 import static spark.Spark.*;
 import spark.template.thymeleaf.ThymeleafTemplateEngine;
 import drinkkiarkisto.database.Database;
-import dao.OpiskelijaDao;
+import drinkkiarkisto.dao.OpiskelijaDao;
 
 public class Main {
 

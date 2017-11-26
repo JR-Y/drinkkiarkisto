@@ -1,4 +1,4 @@
-package dao;
+package drinkkiarkisto.dao;
 
 import java.sql.*;
 import java.util.*;
