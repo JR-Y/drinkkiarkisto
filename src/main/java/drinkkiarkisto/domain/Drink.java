@@ -9,10 +9,9 @@ package drinkkiarkisto.domain;
  *
  * @author John-Robert
  */
-public class RaakaAine extends AbstractNamedObject {
+public class Drink extends AbstractNamedObject {
 
-    public RaakaAine(Integer id, String name) {
+    public Drink(Integer id, String name) {
         super(id, name);    
-    }
-    
+    }     
 }

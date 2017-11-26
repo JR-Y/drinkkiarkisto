@@ -1,0 +1,31 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Drinks</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <p><a href="/">Home</a></p>
+        
+        <h2>Add Drink:</h2>
+
+        <form method="POST" action="/drinks">
+            <input type="text" name="name"/><br/>
+            <input type="submit" value="Add!"/>
+        </form>
+        
+        <h1>Drinks:</h1>
+        
+        <ol>
+            <li th:each="drink: ${drinks}">
+                <span th:text="${drink.name}"></span> <a th:href="${'/drinks/' + drink.id}">link</a>
+                <form th:method="DELETE" th:action="@{~/drinks/{id}(id=${drink.id})}">
+                    <input type="submit" value="Delete!"/>
+                </form>
+            </li>
+        </ol>
+        
+    </body>
+</html>

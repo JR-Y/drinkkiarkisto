@@ -1,0 +1,46 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Drink</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <p><a href="/">Home</a></p>
+
+        <h1>Drink - <span th:text="${drink.name}"></span></h1>
+
+        <h2>Add ingredient:</h2>
+
+        <form th:method="POST" th:action="@{~/drinks/{id}(id=${drink.id})}">
+            <p>Select ingredient: <select name="ingredientId">
+                    <option th:each="ingredient: ${allIngredients}" th:value="${ingredient.id}" th:text="${ingredient.name}">
+                    </option>
+                </select></p>
+            <p>Set order number: <input type="text" name="orderNo"/></p>
+            <p>Set amount: <input type="text" name="amount"/></p>
+            <p>Instructions: <input type="text" name="directions"/></p>
+            <input type="submit" value="Add!"/>
+        </form>
+
+        <p>Recipe:</p>
+
+        <ol>
+
+            <li th:each="ingredient: ${ingredients}">
+                <form th:method="DELETE" th:action="@{~/drinks/{did}/{iid}(did=${drink.id}, iid=${ingredient.id})}">
+                    <span>Ingredient: </span>
+                    <span th:text="${ingredient.name}"></span>
+                    <span>, Amount: </span>
+                    <span th:text="${ingredient.amount}"></span>
+                    <span>, Instructions: </span>
+                    <span th:text="${ingredient.directions}"></span>
+                    <input type="submit" value="Delete!"/>
+                </form>
+            </li>
+
+        </ol>
+
+    </body>
+</html>
