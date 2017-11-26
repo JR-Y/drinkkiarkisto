@@ -1,4 +1,4 @@
-package drinkkiarkisto.runko.database;
+package dao;
 
 import java.sql.*;
 import java.util.*;

@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package drinkkiarkisto.runko.database;
+package dao;
 
+import drinkkiarkisto.database.Database;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import drinkkiarkisto.runko.domain.Opiskelija;
+import drinkkiarkisto.domain.Opiskelija;
 
 public class OpiskelijaDao implements Dao<Opiskelija, Integer> {
 

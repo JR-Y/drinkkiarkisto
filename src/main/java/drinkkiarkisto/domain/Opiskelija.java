@@ -1,4 +1,4 @@
-package drinkkiarkisto.runko.domain;
+package drinkkiarkisto.domain;
 
 public class Opiskelija {
 

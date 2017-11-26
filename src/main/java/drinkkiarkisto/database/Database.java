@@ -1,4 +1,4 @@
-package drinkkiarkisto.runko.database;
+package drinkkiarkisto.database;
 
 import java.sql.*;
 import java.util.ArrayList;

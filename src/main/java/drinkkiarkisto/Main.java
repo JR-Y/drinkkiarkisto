@@ -1,11 +1,11 @@
-package drinkkiarkisto.runko;
+package drinkkiarkisto;
 
 import java.util.HashMap;
 import spark.ModelAndView;
 import static spark.Spark.*;
 import spark.template.thymeleaf.ThymeleafTemplateEngine;
-import drinkkiarkisto.runko.database.Database;
-import drinkkiarkisto.runko.database.OpiskelijaDao;
+import drinkkiarkisto.database.Database;
+import dao.OpiskelijaDao;
 
 public class Main {
 
