@@ -56,7 +56,7 @@ public class DrinkIngredientDao implements Dao<DrinkIngredient, Integer> {
         try (Connection conn = database.getConnection()) {
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setInt(1, key);
-            ResultSet result = stmt.executeQuery();
+            stmt.executeUpdate();
         }        
     }
 
@@ -81,7 +81,7 @@ public class DrinkIngredientDao implements Dao<DrinkIngredient, Integer> {
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setInt(1, drinkId);
             ResultSet result = stmt.executeQuery();
-            System.out.println(result.toString());
+            //System.out.println(result.toString());
 
             while (result.next()) {
                 drinkIngredients.add(createFromRow(result));

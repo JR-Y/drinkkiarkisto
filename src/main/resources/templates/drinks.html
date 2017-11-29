@@ -21,7 +21,7 @@
         <ol>
             <li th:each="drink: ${drinks}">
                 <span th:text="${drink.name}"></span> <a th:href="${'/drinks/' + drink.id}">link</a>
-                <form th:method="DELETE" th:action="@{~/drinks/{id}(id=${drink.id})}">
+                <form th:method="POST" th:action="@{~/drinks/delete/{id}(id=${drink.id})}">
                     <input type="submit" value="Delete!"/>
                 </form>
             </li>

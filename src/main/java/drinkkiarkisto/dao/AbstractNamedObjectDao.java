@@ -19,7 +19,6 @@ import drinkkiarkisto.database.Database;
 import drinkkiarkisto.database.Database;
 import drinkkiarkisto.domain.AbstractNamedObject;
 
-
 public abstract class AbstractNamedObjectDao<T extends AbstractNamedObject>
         implements Dao<T, Integer> {
 
@@ -100,7 +99,12 @@ public abstract class AbstractNamedObjectDao<T extends AbstractNamedObject>
 
     @Override
     public void delete(Integer key) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String query = " DELETE FROM " + tableName + " WHERE id = ? ";
+        try (Connection conn = database.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setInt(1, key);
+            stmt.executeUpdate();
+        }
     }
 
     public abstract T createFromRow(ResultSet resultSet) throws SQLException;

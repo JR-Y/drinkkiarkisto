@@ -29,7 +29,7 @@
         <ol>
 
             <li th:each="ingredient: ${ingredients}">
-                <form th:method="DELETE" th:action="@{~/drinks/{did}/{iid}(did=${drink.id}, iid=${ingredient.id})}">
+                <form th:action="@{~/drinks/{id}/delete(iid=${ingredient.id}, id=${drink.id})}" th:method="POST">
                     <span>Ingredient: </span>
                     <span th:text="${ingredient.name}"></span>
                     <span>, Amount: </span>
@@ -39,8 +39,6 @@
                     <input type="submit" value="Delete!"/>
                 </form>
             </li>
-
         </ol>
-
     </body>
 </html>

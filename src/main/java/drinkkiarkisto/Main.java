@@ -15,6 +15,7 @@ import drinkkiarkisto.domain.IngredientWithInstructions;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import spark.Spark;
 
 public class Main {
 
@@ -42,7 +43,6 @@ public class Main {
         post("/drinks", (req, res) -> {
             Drink drink = new Drink(-1, req.queryParams("name"));
             Drink drink2 = drinkDao.saveOrUpdate(drink);
-            System.out.println(drink2.getId());
 
             res.redirect("/drinks/" + drink2.getId());
             return "";
@@ -58,8 +58,12 @@ public class Main {
         post("/ingredients", (req, res) -> {
             Ingredient ingredient = new Ingredient(-1, req.queryParams("name"));
             Ingredient ingredient2 = ingredientDao.saveOrUpdate(ingredient);
-            System.out.println(ingredient2.getId());
-
+            res.redirect("/ingredients");
+            return "";
+        });
+        
+        post("/ingredients/delete/:id", (req, res) -> {           
+            ingredientDao.delete(Integer.parseInt(req.params(":id")));
             res.redirect("/ingredients");
             return "";
         });
@@ -100,10 +104,18 @@ public class Main {
             return "";
         });
         
-        delete("/drinks/:did/:iid", (req, res) -> {
-            Integer DrinkIngredientId = Integer.parseInt(req.params(":iid"));
+        post("/drinks/:id/delete", (req, res) -> {
+            System.out.println("Entered delete");
+            Integer drinkId = Integer.parseInt(req.params(":id"));
+            Integer DrinkIngredientId = Integer.parseInt(req.queryParams("iid"));
             drinkIngredientDao.delete(DrinkIngredientId);
-            res.redirect("/drinks/" + Integer.parseInt(req.params(":did")));
+            res.redirect("/drinks/" + drinkId);
+            return "";         
+        });
+        
+        post("/drinks/delete/:id", (req, res) -> {
+            drinkDao.delete(Integer.parseInt(req.params(":id")));
+            res.redirect("/drinks");
             return "";         
         });
     }
