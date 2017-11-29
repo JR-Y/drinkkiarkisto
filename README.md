@@ -4,8 +4,8 @@ Harjoitustehtävä
 
 Vastaukset kysymyksiin:
 
-Voiko sovelluksessa mennä katsomaan listausta ainesosista (tai vastaavasta)?
-    Kyllä, ” /ingredients” GET
+<h2>Voiko sovelluksessa mennä katsomaan listausta ainesosista (tai vastaavasta)?<h2/>
+    <p>Kyllä, ” /ingredients” GET<p/>
 Voiko sovelluksessa mennä katsomaan listausta annoksista (tai vastaavasta)?
     Kyllä, ” /drinks” GET
 Voiko ainesosia lisätä?
